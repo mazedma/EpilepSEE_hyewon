@@ -16,6 +16,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
@@ -28,6 +29,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <LinearLayout
+            android:id="@+id/layout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -49,6 +51,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="안내 시작 시간 지정"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+            <SeekBar
+                android:id="@+id/seekBarTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="10"
+                android:progress="0"
+                android:secondaryProgress="0"
+                android:stepSize="5" />
+
+            <TextView
+                android:id="@+id/textViewSelectedTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0 초"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small" />
         </LinearLayout>
 

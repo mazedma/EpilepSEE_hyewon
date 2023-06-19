@@ -34,7 +34,7 @@ import androidx.lifecycle.lifecycleScope
 import kr.co.episode.epilepsee.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 
-const val TAG = "Events Monitor"
+const val TAG = "epileSEE"
 
 class MainActivity : AppCompatActivity() {
 

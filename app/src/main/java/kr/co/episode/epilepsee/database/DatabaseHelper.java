@@ -127,6 +127,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    // 앱 설정 데이터 추가, 수정, 삭제, 조회
+    // 앱 설정 데이터 추가
+    public void addAppSettings(int detectionEnabled, int voiceGuidanceEnabled, String voiceGuidanceComment, int automaticReportEnabled) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("DETECTION_ENABLED", detectionEnabled);
+        values.put("VOICE_GUIDANCE_ENABLED", voiceGuidanceEnabled);
+        values.put("VOICE_GUIDANCE_COMMENT", voiceGuidanceComment);
+        values.put("AUTOMATIC_REPORT_ENABLED", automaticReportEnabled);
+        db.insert(TABLE_APP_SETTINGS, null, values);
+        db.close();
+    }
+
+    // 앱 설정 데이터 수정
+    public void updateAppSettings(int settingId, int detectionEnabled, int voiceGuidanceEnabled, String voiceGuidanceComment, int automaticReportEnabled) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("DETECTION_ENABLED", detectionEnabled);
+        values.put("VOICE_GUIDANCE_ENABLED", voiceGuidanceEnabled);
+        values.put("VOICE_GUIDANCE_COMMENT", voiceGuidanceComment);
+        values.put("AUTOMATIC_REPORT_ENABLED", automaticReportEnabled);
+        db.update(TABLE_APP_SETTINGS, values, "SETTING_ID=?", new String[]{String.valueOf(settingId)});
+        db.close();
+    }
+
+    // 앱 설정 데이터 삭제
+    public void deleteAppSettings(int settingId) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(TABLE_APP_SETTINGS, "SETTING_ID=?", new String[]{String.valueOf(settingId)});
+        db.close();
+    }
+
+    // 앱 설정 데이터 조회
+    public Cursor getAppSettings() {
+        SQLiteDatabase db = getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_APP_SETTINGS;
+        return db.rawQuery(selectQuery, null);
+    }
+
+
+
+
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // 데이터베이스 버전 업그레이드 시 수행할 작업을 작성해주세요
