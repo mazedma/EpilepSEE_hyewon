@@ -80,8 +80,8 @@ public class SeizureActivity extends AppCompatActivity {
                         case R.id.firstFragment:
                             navController.navigate(R.id.action_firstFragment_to_secondFragment);
                             // 첫 번째 프래그먼트에서 입력된 데이터를 SeventhFragment의 멤버 변수에 저장
-                            FirstFragment firstFragment = new FirstFragment();
-                            startDate = firstFragment.getStartDate();
+//                            FirstFragment firstFragment = new FirstFragment();
+//                            startDate = firstFragment.getStartDate();
 
 
                             break;
